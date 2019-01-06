@@ -1,0 +1,3 @@
+[submodule "themes/spectrum"]
+	path = themes/spectrum
+	url = git@github.com:Alien1993/spectrum.git
