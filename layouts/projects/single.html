@@ -1,0 +1,17 @@
+{{ define "main" }}
+<article class="content is-medium">
+  <h2 class="title">
+    {{ .Title }}
+  </h2>
+
+  <p>
+    {{ .Content }}
+  </p>
+</article>
+
+<div class="tags">
+  {{ range .Params.categories }}
+    <a href="{{ "tags" | absURL }}/{{ . | urlize }}" class="tag is-dark is-medium">{{ . }}</a>
+  {{ end }}
+</div>
+{{ end }}

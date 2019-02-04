@@ -1,0 +1,35 @@
+{{ define "main" }}
+  <article>
+    <main>
+      {{- .Content -}}
+    </main>
+
+    <section class="columns is-multiline is-vcentered">
+      {{- template "_internal/pagination.html" -}}
+
+      {{ range .Paginator.Pages }}
+        {{ $pageLink := .RelPermalink }}
+
+        {{ with .Resources.GetMatch "featured-image" }}
+          <div class="column is-4">
+            <a href="{{ $pageLink }}">
+              <figure class="image is-square">
+                <img src="{{ .Permalink }}" alt="{{ .Title }}"/>
+              </figure>
+            </a>
+
+            {{ end }}
+
+            <a href="{{ .RelPermalink }}" class="has-text-centered">
+              <h2 class="title">
+                {{- .Title -}}
+              </h2>
+            </a>
+          </div>
+      {{ end }}
+
+      {{ partial "pagination.html"}}
+
+    </section>
+  </article>
+{{ end }}
