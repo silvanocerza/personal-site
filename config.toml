@@ -2,8 +2,13 @@ baseURL = "https://silvanocerza.com/"
 languageCode = "en-us"
 title = "Silvano Cerza"
 theme = "spectrum"
-copyright = "© 2019 by Silvano Cerza. All rights are reserved."
 enableRobotsTXT = "true"
+copyright = """
+    © 2019 by Silvano Cerza.
+    All content on this site is available under a
+    <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">
+    CC BY-SA 4.0 license
+    </a>."""
 
 [menu]
     [[menu.main]]
