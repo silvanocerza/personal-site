@@ -10,6 +10,9 @@ copyright = """
     CC BY-SA 4.0 license
     </a>."""
 
+[params]
+    subtitle = "A person"
+
 [menu]
     [[menu.main]]
         name = "Blog"
@@ -26,3 +29,22 @@ copyright = """
         url = "/about"
         weight = 3
 
+[privacy]
+    [privacy.disqus]
+        disable = false
+    [privacy.googleAnalytics]
+        anonymizeIP = true
+        respectDoNotTrack = true
+        useSessionStorage = true
+    [privacy.instagram]
+        simple = true
+    [privacy.twitter]
+        disable = false
+        enableDNT = true
+        simple = true
+    [privacy.vimeo]
+        disable = false
+        simple = true
+    [privacy.youtube]
+        disable = false
+        privacyEnhanced = true
