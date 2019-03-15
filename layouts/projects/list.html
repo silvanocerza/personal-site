@@ -4,11 +4,11 @@
       {{- .Content -}}
     </main>
 
-    <section class="columns is-multiline is-vcentered">
+    <section class="columns is-multiline is-mobile is-vcentered">
       {{- template "_internal/pagination.html" -}}
 
       {{ range .Paginator.Pages }}
-        <div class="column is-4">
+        <div class="column is-4-desktop is-6-mobile">
           <a href="{{ .RelPermalink }}" class="title">
             {{ with .Resources.GetMatch "featured-image" }}
                 <figure class="image is-square">
@@ -16,7 +16,7 @@
                 </figure>
             {{ end }}
 
-            <div class="has-text-centered">
+            <div class="has-text-centered is-size-3-desktop is-size-6-mobile is-size-5-tablet">
               {{- .Title -}}
             </div>
           </a>
