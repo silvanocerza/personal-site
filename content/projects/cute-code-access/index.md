@@ -19,7 +19,4 @@ Unreal Engine's support of Visual Studio is a plugin on its own so I decided to 
 
 For the plugin to work correctly the setup is minimal, a Qt Creator's Kit must be configured with the Unreal Engine's toolchain otherwise the necessary project files can't be generated and the user would have to manually configure the project every time.
 
-The plugin can be installed from the [Unreal Engine Marketplace](0) or directly from [source from Github](1).
-
-[0]: https://www.unrealengine.com/marketplace/en-US/cute-code-accessor
-[1]: https://github.com/silvanocerza/CuteCodeAccess
+The plugin can be installed from the [Unreal Engine Marketplace](https://www.unrealengine.com/marketplace/en-US/cute-code-accessor) or directly from [source from Github](https://github.com/silvanocerza/CuteCodeAccess).
