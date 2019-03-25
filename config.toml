@@ -12,6 +12,7 @@ copyright = """
 
 [params]
     subtitle = "A person"
+    mainSections = ["posts"]
 
 [menu]
     [[menu.main]]
