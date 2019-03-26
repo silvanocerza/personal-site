@@ -11,7 +11,9 @@ categories = ["python"]
 +++
 
 
-MKM-SDK is an SDK for [Magic Card Market](https://www.cardmarket.com/en/Magic), a store that sell several Trading Card Games. 
+MKM-SDK is an SDK for [Magic Card Market](https://www.cardmarket.com/en/Magic), a store that sell several Trading Card Games.
+
+<!--more-->
 
 It's written completely in Python and uses only [requests](https://github.com/kennethreitz/requests) and [requests_oauthlib](https://github.com/requests/requests-oauthlib/) as dependencies.
 

@@ -4,14 +4,13 @@ date = "2019-01-28T22:08:11+01:00"
 draft = true
 
 categories = ["auto", "test", "technical", "rant", "autos", "stest", "technicalasdfasdf", "asdfsdf", "ding ding", "rant"]
-
-
-[[resources]]
-    name = "featured-image"
-    src = "cold-frozen.jpg"
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. In metus vulputate eu scelerisque felis imperdiet. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Metus dictum at tempor commodo ullamcorper a lacus. Sit amet porttitor eget dolor morbi non arcu risus. Vitae aliquet nec ullamcorper sit amet risus. Dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu. Quisque egestas diam in arcu cursus. Vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum est. A iaculis at erat pellentesque adipiscing commodo. Et ultrices neque ornare aenean euismod elementum nisi quis eleifend. Magna etiam tempor orci eu lobortis. Lectus quam id leo in vitae. Sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. In metus vulputate eu scelerisque felis imperdiet.
+
+<!--more-->
+
+Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Metus dictum at tempor commodo ullamcorper a lacus. Sit amet porttitor eget dolor morbi non arcu risus. Vitae aliquet nec ullamcorper sit amet risus. Dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu. Quisque egestas diam in arcu cursus. Vulputate sapien nec sagittis aliquam malesuada bibendum arcu. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum est. A iaculis at erat pellentesque adipiscing commodo. Et ultrices neque ornare aenean euismod elementum nisi quis eleifend. Magna etiam tempor orci eu lobortis. Lectus quam id leo in vitae. Sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum.
 
 At consectetur lorem donec massa sapien faucibus et molestie. Magna sit amet purus gravida quis blandit turpis cursus. Risus nec feugiat in fermentum posuere. Sed risus ultricies tristique nulla aliquet. At lectus urna duis convallis. Nibh tortor id aliquet lectus proin nibh. Vitae proin sagittis nisl rhoncus mattis rhoncus urna neque. Aliquet nibh praesent tristique magna sit amet. Nisl condimentum id venenatis a condimentum vitae sapien pellentesque. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et. Est sit amet facilisis magna etiam tempor orci eu. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar.
 
