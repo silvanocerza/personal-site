@@ -1,13 +1,7 @@
 +++
 title = "Cute Code Access"
-draft = true
 
 categories = ["c++", "unreal engine"]
-
-
-[[resources]]
-    name = "featured-image"
-    src = "cute-code-accessor.jpg"
 +++
 
 Cute Code Access is a plugin for Unreal Engine 4 that enables the user of Qt Creator as its IDE.
