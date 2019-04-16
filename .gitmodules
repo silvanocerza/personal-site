@@ -1,3 +1,6 @@
 [submodule "themes/spectrum"]
 	path = themes/spectrum
 	url = git@github.com:silvanocerza/spectrum.git
+[submodule "public"]
+	path = public
+	url = git@github.com:silvanocerza/silvanocerza.github.io.git
