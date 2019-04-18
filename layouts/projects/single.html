@@ -11,7 +11,7 @@
 
 <div class="tags">
   {{ range .Params.categories }}
-    <a href="{{ "tags" | absURL }}/{{ . | urlize }}" class="tag is-medium">{{ . }}</a>
+    <a href="{{ "categories" | absURL }}/{{ . | urlize }}" class="tag is-medium">{{ . }}</a>
   {{ end }}
 </div>
 {{ end }}
