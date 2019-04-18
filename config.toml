@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Silvano Cerza"
 theme = "spectrum"
 enableRobotsTXT = "true"
+disqusShortname = "silvanocerza"
 copyright = """
     © 2019 by Silvano Cerza.
     All content on this site is available under a
@@ -33,6 +34,7 @@ copyright = """
 [privacy]
     [privacy.disqus]
         disable = false
+        skipAgree = false
     [privacy.googleAnalytics]
         anonymizeIP = true
         respectDoNotTrack = true
