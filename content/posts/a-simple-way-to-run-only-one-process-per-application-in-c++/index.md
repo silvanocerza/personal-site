@@ -7,6 +7,8 @@ tags = ["C++"]
 [[resources]]
     name = "featured-image"
     src = "lock.jpg"
+    [resources.params]
+        caption = "Image by Silvano Cerza"
 
 +++
 
