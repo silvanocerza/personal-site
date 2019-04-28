@@ -27,9 +27,14 @@ copyright = """
         weight = 2
 
     [[menu.main]]
+        name = "Resume"
+        url = "/resume"
+        weight = 3
+
+    [[menu.main]]
         name = "About"
         url = "/about"
-        weight = 3
+        weight = 4
 
 [privacy]
     [privacy.disqus]
