@@ -18,6 +18,7 @@ If you want to reach out you can find me on several places:
 
 * [Github](https://github.com/silvanocerza)
 * [GitLab](https://gitlab.com/silvanocerza)
+* [Stack Overflow](https://stackoverflow.com/users/4156301/silvanocerza)
 * [LinkedIn](https://www.linkedin.com/in/silvanocerza/)
 * [Twitter](https://twitter.com/SilvanoCerza)
 * [Instagram](https://www.instagram.com/silvanocerza/)
