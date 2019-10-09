@@ -28,6 +28,7 @@ disqusShortname = "silvanocerza"
     twitter = "SilvanoCerza"
     stackoverflow = "4156301"
     gravatar = "silvanocerza@gmail.com"
+    rss = "/index.xml"
 
 [menu]
     [[menu.main]]
