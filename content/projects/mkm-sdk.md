@@ -1,15 +1,13 @@
 +++
 title = "MKM SDK"
+link = "https://github.com/evonove/mkm-sdk"
+description = "SDK for Magic Card Market"
 
 categories = ["python"]
+layout = "portfolio"
 +++
 
-
-MKM-SDK is an SDK for [Magic Card Market](https://www.cardmarket.com/en/Magic), a store that sell several Trading Card Games.
-
-<!--more-->
-
-It's written completely in Python and uses only [requests](https://github.com/kennethreitz/requests) and [requests_oauthlib](https://github.com/requests/requests-oauthlib/) as dependencies.
+Written completely in Python and uses only [requests](https://github.com/kennethreitz/requests) and [requests_oauthlib](https://github.com/requests/requests-oauthlib/) as dependencies.
 
 It uses Python's powerful reflection to resolve dynamically at runtime the APIs endpoint. For example if one would want to get the informations of the currently logged user:
 
@@ -44,5 +42,3 @@ Each endpoint specifies its url, method and a small description like so:
     "description": "Updates the vacation status of the authenticated user; returns the Account entity",
 }
 {{< /highlight >}}
-
-The library can be found on on [PyPi](https://pypi.org/project/mkmsdk/0.5.0/) and on [Github](https://github.com/evonove/mkm-sdk).

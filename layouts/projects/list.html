@@ -1,29 +1,11 @@
-{{ define "main" }}
-  <article>
-    <main>
-      {{- .Content -}}
-    </main>
+{{ define "header" }}
+    {{ partial "header.html" . }}
+{{ end }}
 
-    <section class="columns is-multiline is-vcentered">
-      {{- template "_internal/pagination.html" -}}
+{{ define "content" }}
+    {{ partial "projects/content.html" . }}
+{{ end }}
 
-      {{ range .Paginator.Pages }}
-        <div class="column is-half is-vcentered">
-          <div class="content">
-            <h2>
-              <a href="{{ .RelPermalink }}">
-                {{- .Title -}}
-              </a>
-            </h2>
-            <p>
-              {{ plainify .Summary }}
-            </p>
-          </div>
-        </div>
-      {{ end }}
-
-      {{ partial "pagination.html"}}
-
-    </section>
-  </article>
+{{ define "footer" }}
+    {{ partial "portfolio/footer.html" . }}
 {{ end }}

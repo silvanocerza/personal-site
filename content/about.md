@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: ""
 date: 2019-02-04T21:23:37+01:00
 type: "about"
 ---

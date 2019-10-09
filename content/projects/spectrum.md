@@ -1,12 +1,11 @@
 +++
 title = "Spectrum"
+link = "https://github.com/silvanocerza/spectrum"
+description = "An highly customizable Hugo theme based on the CSS framework Bulma."
 
 categories = ["CSS", "hugo", "bulma"]
+layout = "portfolio"
 +++
-
-An highly customizable Hugo theme based on the CSS framework Bulma.
-
-<!--more-->
 
 Spectrum is a theme for the static site generator [Hugo](https://gohugo.io/), the CSS framework [Bulma](https://bulma.io/) makes it completely responsive and in combination with the lookup order of Hugo templates it can be easily personalized. 
 

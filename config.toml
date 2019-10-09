@@ -1,19 +1,33 @@
 baseURL = "https://silvanocerza.com/"
 languageCode = "en-us"
 title = "Silvano Cerza"
-theme = "spectrum"
+theme = "hyde-hyde"
 enableRobotsTXT = "true"
 disqusShortname = "silvanocerza"
-copyright = """
-    © 2019 by Silvano Cerza.
-    All content on this site is available under a
-    <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">
-    CC BY-SA 4.0 license
-    </a>."""
 
 [params]
-    subtitle = "A person"
+    themeColor = "theme-base-08"
     mainSections = ["posts"]
+    author = "Silvano Cerza"
+    dateformat = "Jan 2, 2006"
+
+    copyright = "Silvano Cerza"
+    license = "CC BY-SA 4.0"
+    licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
+    showBuiltWith = false
+
+    highlightjs = true
+    highlightjsstyle = "gruvbox-dark"
+
+
+[params.social]
+    github = "silvanocerza"
+    gitlab = "silvanocerza"
+    instagram = "silvanocerza"
+    linkedin = "silvanocerza"
+    twitter = "SilvanoCerza"
+    stackoverflow = "4156301"
+    gravatar = "silvanocerza@gmail.com"
 
 [menu]
     [[menu.main]]

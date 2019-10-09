@@ -4,12 +4,6 @@ date = "2019-04-10T17:51:49+02:00"
 
 tags = ["C++"]
 
-[[resources]]
-    name = "featured-image"
-    src = "lock.jpg"
-    [resources.params]
-        caption = "Image by Silvano Cerza"
-
 +++
 
 Some times it might be necessary to limit the number of processes running at the same time for a certain application. There might be several reasons for this, to prevent data corruption for example. This is a simple cross-platform way to do it.

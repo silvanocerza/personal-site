@@ -1,12 +1,11 @@
 +++
 title = "Cute Code Access"
+link = "https://github.com/silvanocerza/CuteCodeAccess"
+description = "Unreal Engine 4 plugin to use Qt Creator as its IDE"
 
 categories = ["c++", "unreal engine"]
+layout = "portfolio"
 +++
-
-Cute Code Access is a plugin for Unreal Engine 4 that enables the user of Qt Creator as its IDE.
-
-<!--more-->
 
 When I started learning Unreal Engine I spent most of my time trying to fight against Visual Studio instead of learning the engine since I mostly work on Linux using Qt Creator.
 
