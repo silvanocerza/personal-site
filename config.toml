@@ -17,7 +17,7 @@ disqusShortname = "silvanocerza"
     showBuiltWith = false
 
     highlightjs = true
-    highlightjsstyle = "gruvbox-dark"
+    highlightjsstyle = "solarized-light"
 
 
 [params.social]
