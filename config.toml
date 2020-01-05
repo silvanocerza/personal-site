@@ -6,7 +6,7 @@ enableRobotsTXT = "true"
 disqusShortname = "silvanocerza"
 
 [params]
-    themeColor = "theme-base-08"
+    themeColor = "theme-base-0b"
     mainSections = ["posts"]
     author = "Silvano Cerza"
     dateformat = "Jan 2, 2006"
