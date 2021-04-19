@@ -41,7 +41,7 @@ weight = 2
 
 [[menu.main]]
 name = "Resume"
-url = "/resume"
+url = "https://resume.silvanocerza.com/"
 weight = 3
 
 [[menu.main]]
