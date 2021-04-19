@@ -6,68 +6,72 @@ enableRobotsTXT = "true"
 disqusShortname = "silvanocerza"
 
 [params]
-    themeColor = "theme-base-0b"
-    mainSections = ["posts"]
-    author = "Silvano Cerza"
-    dateformat = "Jan 2, 2006"
-
-    copyright = "Silvano Cerza"
-    license = "CC BY-SA 4.0"
-    licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
-    showBuiltWith = false
-
-    highlightjs = true
-    highlightjsstyle = "solarized-light"
-
+themeColor = "theme-base-0b"
+mainSections = ["posts"]
+author = "Silvano Cerza"
+dateformat = "Jan 2, 2006"
+copyright = "Silvano Cerza"
+license = "CC BY-SA 4.0"
+licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
+showBuiltWith = false
+highlightjs = true
+highlightjsstyle = "solarized-light"
 
 [params.social]
-    github = "silvanocerza"
-    gitlab = "silvanocerza"
-    instagram = "silvanocerza"
-    linkedin = "silvanocerza"
-    twitter = "SilvanoCerza"
-    stackoverflow = "4156301"
-    gravatar = "silvanocerza@gmail.com"
-    rss = "/index.xml"
+github = "silvanocerza"
+gitlab = "silvanocerza"
+instagram = "silvanocerza"
+linkedin = "silvanocerza"
+twitter = "SilvanoCerza"
+stackoverflow = "4156301"
+gravatar = "silvanocerza@gmail.com"
+rss = "/index.xml"
 
 [menu]
-    [[menu.main]]
-        name = "Blog"
-        url = "/posts"
-        weight = 1
 
-    [[menu.main]]
-        name = "Projects"
-        url = "/projects"
-        weight = 2
+[[menu.main]]
+name = "Blog"
+url = "/posts"
+weight = 1
 
-    [[menu.main]]
-        name = "Resume"
-        url = "/resume"
-        weight = 3
+[[menu.main]]
+name = "Projects"
+url = "/projects"
+weight = 2
 
-    [[menu.main]]
-        name = "About"
-        url = "/about"
-        weight = 4
+[[menu.main]]
+name = "Resume"
+url = "/resume"
+weight = 3
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 4
 
 [privacy]
-    [privacy.disqus]
-        disable = false
-        skipAgree = false
-    [privacy.googleAnalytics]
-        anonymizeIP = true
-        respectDoNotTrack = true
-        useSessionStorage = true
-    [privacy.instagram]
-        simple = true
-    [privacy.twitter]
-        disable = false
-        enableDNT = true
-        simple = true
-    [privacy.vimeo]
-        disable = false
-        simple = true
-    [privacy.youtube]
-        disable = false
-        privacyEnhanced = true
+
+[privacy.disqus]
+disable = false
+skipAgree = false
+
+[privacy.googleAnalytics]
+anonymizeIP = true
+respectDoNotTrack = true
+useSessionStorage = true
+
+[privacy.instagram]
+simple = true
+
+[privacy.twitter]
+disable = false
+enableDNT = true
+simple = true
+
+[privacy.vimeo]
+disable = false
+simple = true
+
+[privacy.youtube]
+disable = false
+privacyEnhanced = true
