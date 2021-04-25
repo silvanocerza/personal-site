@@ -1,48 +1,69 @@
 baseURL = "https://silvanocerza.com/"
 languageCode = "en-us"
-title = "Silvano Cerza"
-theme = "hyde-hyde"
+title = "Hey, I'm Silvano!"
+theme = "hugo-ink"
 enableRobotsTXT = "true"
 disqusShortname = "silvanocerza"
+copyright = "© Silvano Cerza CC BY-SA 4.0"
+
+[markup]
+
+[markup.highlight]
+anchorLineNos = false
+codeFences = true
+guessSyntax = false
+hl_Lines = ""
+lineAnchors = ""
+lineNoStart = 1
+lineNos = true
+lineNumbersInTable = true
+noClasses = true
+style = "monokailight"
+tabWidth = 4
 
 [params]
-themeColor = "theme-base-0b"
-mainSections = ["posts"]
+avatar = "https://en.gravatar.com/userimage/98120849/25999b8590b0cbeb8680454481fd7c12.jpg?size=200"
+subtitle = """
+Writing code and other things
+"""
 author = "Silvano Cerza"
 dateformat = "Jan 2, 2006"
-copyright = "Silvano Cerza"
-license = "CC BY-SA 4.0"
-licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
-showBuiltWith = false
-highlightjs = true
-highlightjsstyle = "solarized-light"
+# Light/dark mode
+mode = "auto"
+# Content types to disable Disqus on.
+disableDisqusTypes = ["about"]
 
-[params.social]
-github = "silvanocerza"
-gitlab = "silvanocerza"
-instagram = "silvanocerza"
-linkedin = "silvanocerza"
-twitter = "SilvanoCerza"
-stackoverflow = "4156301"
-gravatar = "silvanocerza@gmail.com"
-rss = "/index.xml"
+[[params.social]]
+name = "github"
+icon = "github"
+url = "https://github.com/silvanocerza"
+
+[[params.social]]
+name = "linkedin"
+icon = "linkedin"
+url = "https://linkedin.com/in/silvanocerza"
+
+[[params.social]]
+name = "twitter"
+icon = "twitter"
+url = "https://twitter.com/SilvanoCerza"
+
+[[params.social]]
+name = "RSS"
+icon = "rss"
+url = "/index.xml"
 
 [menu]
 
 [[menu.main]]
-name = "Blog"
-url = "/posts"
+name = "Resume"
+url = "https://resume.silvanocerza.com/"
 weight = 1
 
 [[menu.main]]
-name = "Resume"
-url = "https://resume.silvanocerza.com/"
-weight = 2
-
-[[menu.main]]
-name = "About"
+name = "What am up to now?"
 url = "/about"
-weight = 3
+weight = 2
 
 [privacy]
 
