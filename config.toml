@@ -3,7 +3,6 @@ languageCode = "en-us"
 title = "Hey, I'm Silvano!"
 theme = "hugo-ink"
 enableRobotsTXT = "true"
-disqusShortname = "silvanocerza"
 copyright = "© Silvano Cerza CC BY-SA 4.0"
 
 [markup]
@@ -30,8 +29,6 @@ author = "Silvano Cerza"
 dateformat = "Jan 2, 2006"
 # Light/dark mode
 mode = "auto"
-# Content types to disable Disqus on.
-disableDisqusTypes = ["about"]
 
 [[params.social]]
 name = "github"
@@ -68,7 +65,7 @@ weight = 2
 [privacy]
 
 [privacy.disqus]
-disable = false
+disable = true
 skipAgree = false
 
 [privacy.googleAnalytics]
