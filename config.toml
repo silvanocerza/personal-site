@@ -17,7 +17,7 @@ lineNoStart = 1
 lineNos = true
 lineNumbersInTable = true
 noClasses = true
-style = "monokailight"
+style = "dracula"
 tabWidth = 4
 
 [params]
