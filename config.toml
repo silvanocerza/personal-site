@@ -59,7 +59,7 @@ weight = 1
 
 [[menu.main]]
 name = "What am up to now?"
-url = "/about"
+url = "/now"
 weight = 2
 
 [privacy]
