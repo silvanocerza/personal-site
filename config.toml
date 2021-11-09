@@ -58,6 +58,11 @@ url = "https://resume.silvanocerza.com/"
 weight = 1
 
 [[menu.main]]
+name = "Talks"
+url = "/talks"
+weight = 2
+
+[[menu.main]]
 name = "What am up to now?"
 url = "/now"
 weight = 2
