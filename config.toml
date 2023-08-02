@@ -32,22 +32,27 @@ mode = "auto"
 
 [[params.social]]
 name = "github"
-icon = "github"
+icon = "icons/github.svg"
 url = "https://github.com/silvanocerza"
 
 [[params.social]]
 name = "linkedin"
-icon = "linkedin"
+icon = "icons/linkedin.svg"
 url = "https://linkedin.com/in/silvanocerza"
 
 [[params.social]]
 name = "twitter"
-icon = "twitter"
+icon = "icons/twitter.svg"
 url = "https://twitter.com/SilvanoCerza"
 
 [[params.social]]
+name = "mastodon"
+icon = "icons/mastodon.svg"
+url = "https://mastodon.world/@silvanocerza"
+
+[[params.social]]
 name = "RSS"
-icon = "rss"
+icon = "icons/rss.svg"
 url = "/index.xml"
 
 [menu]
