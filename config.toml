@@ -21,7 +21,7 @@ style = "dracula"
 tabWidth = 4
 
 [params]
-avatar = "https://gravatar.com/avatar/27349ff4290adc7e487ecfdc7feb0047?size=200"
+avatar = "https://gravatar.com/avatar/27349ff4290adc7e487ecfdc7feb0047?size=600"
 subtitle = """
 Writing code and other things
 """
