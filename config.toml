@@ -41,11 +41,6 @@ icon = "icons/linkedin.svg"
 url = "https://linkedin.com/in/silvanocerza"
 
 [[params.social]]
-name = "twitter"
-icon = "icons/twitter.svg"
-url = "https://twitter.com/SilvanoCerza"
-
-[[params.social]]
 name = "mastodon"
 icon = "icons/mastodon.svg"
 url = "https://mastodon.world/@silvanocerza"
