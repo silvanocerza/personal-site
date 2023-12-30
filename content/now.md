@@ -1,6 +1,6 @@
 ---
 title: ""
-date: 2021-06-20T14:56:00+02:00
+date: 2023-12-30T13:21:53+01:00
 type: "now"
 ---
 
@@ -8,21 +8,21 @@ Just a page that tells you what am up to [now][nownownow], obviously inspired by
 
 ## Work
 
-As of now it's more than one year that I've started working at **Arduino** in the Tooling Team. Am getting more and more knowledgable about more and more projects and am really enjoying all the technical side of it, there's ton of space for improvements and things to do. I feel like am making an impact.
+It's one whole year that I've been working at [**deepset**][deepset-website] in the Core Team. It's really cool being part of a company that is part of the changes brought by LLMs and AI. Just hoping the bubble doesn't burst.
 
 ## Life
 
-I kinda moved to Turin a couple of months ago, am enjoying my time but not sure how much I'll stay. The perks of remote working remotely I guess. I thinking of moving in the mountains.
+Moved to [**Matera**][matera-wiki] recently, the city with the [**Sassi**][sassi-wiki]. It's certainly something living this close to an UNESCO site.
+I'm enjoying the change of pace from **Turin**.
 
 ## Reading
 
-Am always reading something, I tend to limit the number of technical books to one or two depending on the "load".
+I'm not reading too much these days but I keep buying loads of books, I have so much space to fill in my bookcase.
 
-Right now am reading the **Compilers: Principles, Techniques, and Tools** AKA **The Dragon Book**, seems like a great interesting technical read. I think it will pay off.
-
-Am also reading **Salire in montagna** by **Luca Mercalli**, it's a sort of diary on the difficulties of moving into the mountains, buying an house, renovating it, making sustainable for the future and this kind of things. It's really interesting on the technical side but I don't like some of the author's opinions.
-
-I've started reading **Dune** by **Frank Herbert** too, it's not disappointing me at all, I love Sci-fi after all.
+Though I'm slowly reading **E giustizia per tutti**, part of the series of books "Cose spiegate bene" from **il Post** newspaper and **Iperborea**. It talks about the italian judicial system, it's inner workings, its flaws, etc.
 
 [nownownow]: https://nownownow.com/about
 [derek-sivers]: https://sive.rs/nowff
+[deepset-website]: https://deepset.ai
+[matera-wiki]: https://en.wikipedia.org/wiki/Matera
+[sassi-wiki]: https://en.wikipedia.org/wiki/Sassi_di_Matera
