@@ -88,7 +88,7 @@ simple = true
 
 [privacy.vimeo]
 disable = false
-simple = true
+simple = false
 
 [privacy.youtube]
 disable = false
