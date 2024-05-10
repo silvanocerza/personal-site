@@ -29,6 +29,7 @@ author = "Silvano Cerza"
 dateformat = "Jan 2, 2006"
 # Light/dark mode
 mode = "auto"
+mainSections = ["posts", "talks"]
 
 [[params.social]]
 name = "github"
