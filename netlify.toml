@@ -1,11 +1,9 @@
 [build]
-publish = "public"
-command = "hugo --gc --minify"
+publish = "out"
+command = "npm run build"
 
-[context.production.environment]
-HUGO_VERSION = "0.89.2"
-HUGO_ENV = "production"
-HUGO_ENABLEGITINFO = "true"
+[build.environment]
+NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 [[redirects]]
 from = "/resume"
