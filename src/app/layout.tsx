@@ -20,8 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <ThemeProvider>
-          <div className="mx-auto mt-8 max-w-[800px]">
+        <ThemeProvider attribute="class">
+          <div className="mx-auto max-w-[800px] p-4">
             <Header />
             {children}
           </div>
