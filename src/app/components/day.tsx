@@ -1,4 +1,5 @@
 import type { Post, Thought } from "@/app/lib/posts";
+import Footer from "@/app/components/post-footer";
 
 interface Props {
   date: Date;
@@ -7,62 +8,6 @@ interface Props {
 
 function isPost(post: Post | Thought): post is Post {
   return "title" in post;
-}
-
-/**
- * Renders the footer of a posts and thoughts showing time and tags
- */
-async function renderFoot(post: Post | Thought) {
-  const date = new Date(post.date);
-  const hours = date.getUTCHours();
-  const minutes = date.getUTCMinutes();
-  const time = `${hours}:${minutes} UTC`;
-
-  return (
-    <div className="flex flex-row gap-2">
-      <a
-        className="
-      text-xs
-      underline
-      underline-offset-2
-      decoration-1
-      decoration-green-500
-      hover:text-green-400
-      hover:dark:text-green-200
-      dark:decoration-green-200
-      "
-        href={`/posts/${post.slug}`}
-      >
-        {time}
-      </a>
-      <p className="text-xs select-none">᯾</p>
-      {renderTags(post.tags)}
-    </div>
-  );
-}
-
-/**
- * Renders a post or thought list of tags
- */
-async function renderTags(tags: string[]) {
-  return tags.map((tag) => (
-    <a
-      className="
-      text-xs
-      underline
-      underline-offset-2
-      decoration-1
-      decoration-green-500
-      hover:text-green-400
-      hover:dark:text-green-200
-      dark:decoration-green-200
-      "
-      href={`/tags/${tag}`}
-      key={tag}
-    >
-      {tag}
-    </a>
-  ));
 }
 
 async function renderPost(post: Post) {
@@ -105,7 +50,7 @@ async function renderPost(post: Post) {
           ]
         </p>
       </div>
-      {renderFoot(post)}
+      <Footer post={post} />
     </div>
   );
 }
@@ -114,7 +59,7 @@ async function renderThought(thought: Thought) {
   return (
     <div className="flex flex-col gap-4">
       <div dangerouslySetInnerHTML={{ __html: thought.content }} />
-      {renderFoot(thought)}
+      <Footer post={thought} />
     </div>
   );
 }
