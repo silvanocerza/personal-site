@@ -1,5 +1,6 @@
 import type { Post, Thought } from "@/app/lib/posts";
 import Footer from "@/app/components/post-footer";
+import Markdown from "@/app/components/markdown";
 
 interface Props {
   date: Date;
@@ -30,7 +31,7 @@ async function renderPost(post: Post) {
         {post.title}
       </a>
       <div>
-        <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+        <Markdown>{post.excerpt}</Markdown>
         <p>
           [
           <a
@@ -58,7 +59,7 @@ async function renderPost(post: Post) {
 async function renderThought(thought: Thought) {
   return (
     <div className="flex flex-col gap-4">
-      <div dangerouslySetInnerHTML={{ __html: thought.content }} />
+      <Markdown>{thought.content}</Markdown>
       <Footer post={thought} />
     </div>
   );
