@@ -14,15 +14,15 @@ const mattersOptions = {
     },
   },
   delimiters: "+++",
+  excerpt: true,
   excerpt_separator: "<!--more-->",
 };
 
 type blogData = {
   // Posts are exactly that, blog posts
   posts: Post[];
-  // Talks are identical to posts data wise, though we don't show them in the
-  // same list as posts.
-  talks: Post[];
+  // Talks are identical to posts, except they don't have an excerpt
+  talks: Talk[];
   // Thoughts are short form blog posts, they don't have a title and are shown
   // together with posts.
   thoughts: Thought[];
@@ -36,11 +36,20 @@ export interface Post {
   title: string;
   date: string;
   content: string;
+  excerpt: string;
   tags: string[];
 }
 
 export interface Thought {
   slug: string;
+  date: string;
+  content: string;
+  tags: string[];
+}
+
+export interface Talk {
+  slug: string;
+  title: string;
   date: string;
   content: string;
   tags: string[];
@@ -58,6 +67,33 @@ tags: string[]
 The frontmatter section is parsed with toml and must start and end with `+++`.
 */
 async function readPostFile(postFile: string): Promise<Post> {
+  const slug = path.basename(postFile, ".md");
+  const fileContents = fs.readFileSync(postFile, "utf8");
+  const { data, excerpt, content } = matter(fileContents, mattersOptions);
+  const processedContent = await remark().use(html).process(content);
+
+  return {
+    slug,
+    title: data.title,
+    date: new Date(data.date).toISOString(),
+    excerpt: excerpt || "",
+    content: processedContent.toString(),
+    tags: data.tags || [],
+  };
+}
+
+/**
+Reads a single file and returns a Talk.
+The file must have a frontmatter section with the following fields:
+
+```
+title: string
+date: string
+tags: string[]
+```
+The frontmatter section is parsed with toml and must start and end with `+++`.
+*/
+async function readTalkFile(postFile: string): Promise<Talk> {
   const slug = path.basename(postFile, ".md");
   const fileContents = fs.readFileSync(postFile, "utf8");
   const { data, content } = matter(fileContents, mattersOptions);
@@ -126,7 +162,7 @@ export async function getBlogContent(): Promise<blogData> {
       .readdirSync(talksDir, { recursive: true })
       .map(String)
       .map((p) => path.join(talksDir, p))
-      .map(readPostFile),
+      .map(readTalkFile),
   );
 
   dataCache = {
