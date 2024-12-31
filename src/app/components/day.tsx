@@ -124,11 +124,22 @@ async function renderDate(date: Date) {
   const month = date.toLocaleString("en-US", { month: "short" });
   const year = date.getUTCFullYear();
   return (
-    <div className="flex-col">
-      <h2 className="text-4xl font-bold text-center">{day}</h2>
-      <p className="text-xs text-center">
-        {month} {year}
-      </p>
+    <div>
+      {/* Shown in small screens */}
+      <div className="md:hidden flex flex-row justify-center items-center gap-2">
+        <h2 className="text-4xl font-bold text-center">{day}</h2>
+        <div className="flex-col items-left">
+          <p className="text-xs text-left">{month}</p>
+          <p className="text-xs text-left">{year}</p>
+        </div>
+      </div>
+      {/* Shown in large screens */}
+      <div className="md:flex hidden flex-col">
+        <h2 className="text-4xl font-bold text-center">{day}</h2>
+        <p className="text-xs text-center">
+          {month} {year}
+        </p>
+      </div>
     </div>
   );
 }
@@ -136,8 +147,9 @@ async function renderDate(date: Date) {
 export default async function Day({ date, posts }: Props) {
   return (
     <div className="flex gap-4 pt-4 pb-4 border-b-2">
-      {renderDate(date)}
+      <div className="hidden md:block">{renderDate(date)}</div>
       <div className="flex-1 flex flex-col gap-4">
+        <div className="md:hidden">{renderDate(date)}</div>
         {posts.flatMap((p: Post | Thought, i) => [
           isPost(p) ? renderPost(p) : renderThought(p),
           // We add a divider between posts and thoughts
