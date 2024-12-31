@@ -33,7 +33,6 @@ async function renderPost(post: Post) {
       <div>
         <Markdown>{post.excerpt}</Markdown>
         <p>
-          [
           <a
             className="
             underline
@@ -46,9 +45,8 @@ async function renderPost(post: Post) {
             "
             href={`/posts/${post.slug}`}
           >
-            {wordCount} words ↪
+            {wordCount} words →
           </a>
-          ]
         </p>
       </div>
       <Footer post={post} />
