@@ -35,7 +35,7 @@ async function renderFoot(post: Post | Thought) {
       >
         {time}
       </a>
-      <p className="text-xs">᯾</p>
+      <p className="text-xs select-none">᯾</p>
       {renderTags(post.tags)}
     </div>
   );
@@ -154,7 +154,7 @@ export default async function Day({ date, posts }: Props) {
           isPost(p) ? renderPost(p) : renderThought(p),
           // We add a divider between posts and thoughts
           i < posts.length - 1 && (
-            <div key={i} className="text-center">
+            <div key={i} className="text-center select-none">
               ꩜
             </div>
           ),
