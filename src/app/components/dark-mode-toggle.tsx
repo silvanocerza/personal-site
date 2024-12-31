@@ -25,11 +25,11 @@ export function DarkModeToggle() {
     light: faSun,
     dark: faMoon,
     system: faCircleHalfStroke,
-  }[theme];
+  }[theme as "light" | "dark" | "system"];
 
   const cycleTheme = () => {
     const modes = ["system", "light", "dark"];
-    const currentIndex = modes.indexOf(theme);
+    const currentIndex = modes.indexOf(theme ?? "system");
     const nextIndex = (currentIndex + 1) % modes.length;
     setTheme(modes[nextIndex]);
   };
