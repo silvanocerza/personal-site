@@ -29,6 +29,30 @@ const h3 = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
+const blockquote = ({ children, ...props }: { children: ReactNode }) => {
+  return (
+    <blockquote
+      className="
+      pl-6
+      my-4
+      italic
+      text-slate-700
+      dark:text-slate-300
+      border-l-4
+      border-slate-400
+      dark:border-slate-700
+      bg-slate-100
+      dark:bg-slate-800
+      py-2
+      px-4
+      rounded"
+      {...props}
+    >
+      {children}
+    </blockquote>
+  );
+};
+
 const table = ({ children, ...props }: { children: ReactNode }) => {
   return (
     <div className="flex justify-center">
@@ -159,6 +183,7 @@ export default async function Markdown({ children }: { children: string }) {
         h1: h1,
         h2: h2,
         h3: h3,
+        blockquote: blockquote,
         table: table,
         thead: thead,
         tbody: tbody,
