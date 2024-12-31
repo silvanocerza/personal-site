@@ -7,24 +7,203 @@ const data = {
       slug: "future-of-typescript",
       title: "The Future of TypeScript: What's Next",
       date: "2024-01-15T09:30:21+02:00",
-      content:
-        "TypeScript has evolved significantly over the past years...[long content]",
+      content: `TypeScript continues to reshape how we write JavaScript, bringing powerful type safety and developer tools to the ecosystem. Let's explore some of the most exciting features coming to TypeScript and what they mean for developers.
+
+  <!--more-->
+
+  ## Type System Improvements
+
+  The upcoming version introduces more powerful template literal types:
+
+  \`\`\`typescript
+  type Routes = '/users' | '/posts' | '/comments';
+  type GET<T extends string> = \`GET \${T}\`;
+  type POST<T extends string> = \`POST \${T}\`;
+
+  // Results in: "GET /users" | "GET /posts" | "GET /comments"
+  type GETRoutes = GET<Routes>;
+  \`\`\`
+
+  ## Performance Enhancements
+
+  The TypeScript team has been working on compiler performance:
+
+  \`\`\`typescript
+  // Before: Slow type inference
+  const result = someArray
+    .map(x => x + 1)
+    .filter(x => x > 0)
+    .reduce((acc, val) => acc + val, 0);
+
+  // After: Optimized type flow analysis
+  const result = someArray.reduce((acc, x) => {
+    const mapped = x + 1;
+    return mapped > 0 ? acc + mapped : acc;
+  }, 0);
+  \`\`\`
+
+  ## Developer Experience
+
+  New error messages are more contextual and helpful:
+
+  \`\`\`typescript
+  interface User {
+    name: string;
+    age: number;
+  }
+
+  // Better error messages for common mistakes
+  const user: User = {
+    name: "John",
+    age: "42", // Clear error explaining number vs string mismatch
+  };
+  \`\`\`
+
+  The future of TypeScript looks promising with these improvements in type safety, performance, and developer experience.`,
       tags: ["typescript", "javascript", "programming-languages"],
     },
     {
       slug: "rust-vs-go",
       title: "Rust vs Go: Systems Programming Showdown",
       date: "2024-01-15T14:22:33+02:00",
-      content:
-        "Comparing two modern systems programming languages...[long content]",
+      content: `When it comes to modern systems programming, Rust and Go stand out as two popular choices. Both offer unique approaches to common problems, but with different trade-offs and philosophies.
+
+  <!--more-->
+
+  ## Memory Management
+
+  ### Rust's Ownership Model
+
+  \`\`\`rust
+  fn main() {
+      let mut s = String::from("hello");
+      process_string(&mut s); // Borrowing
+      println!("{}", s); // Still valid here
+  }
+
+  fn process_string(s: &mut String) {
+      s.push_str(" world");
+  }
+  \`\`\`
+
+  ### Go's Garbage Collection
+
+  \`\`\`go
+  func main() {
+      s := "hello"
+      processed := processString(s)
+      fmt.Println(processed)
+  }
+
+  func processString(s string) string {
+      return s + " world"
+  }
+  \`\`\`
+
+  ## Concurrency Models
+
+  ### Rust's Threads and Channels
+
+  \`\`\`rust
+  use std::sync::mpsc;
+  use std::thread;
+
+  fn main() {
+      let (tx, rx) = mpsc::channel();
+
+      thread::spawn(move || {
+          tx.send("Hello from thread!").unwrap();
+      });
+
+      println!("{}", rx.recv().unwrap());
+  }
+  \`\`\`
+
+  ### Go's Goroutines
+
+  \`\`\`go
+  func main() {
+      ch := make(chan string)
+
+      go func() {
+          ch <- "Hello from goroutine!"
+      }()
+
+      fmt.Println(<-ch)
+  }
+  \`\`\`
+
+  Each language has its sweet spot, and choosing between them often depends on specific project requirements and constraints.`,
       tags: ["rust", "golang", "systems-programming", "performance"],
     },
     {
       slug: "distributed-tracing",
       title: "Implementing Distributed Tracing at Scale",
       date: "2023-12-10T11:15:00+02:00",
-      content:
-        "Real-world experiences implementing distributed tracing...[long content]",
+      content: `Distributed tracing has become essential for understanding complex microservices architectures. Here's what we learned implementing it across our organization.
+
+  <!--more-->
+
+  ## Implementation with OpenTelemetry
+
+  Here's a basic Express middleware example:
+
+  \`\`\`typescript
+  import { trace } from '@opentelemetry/api';
+  import express from 'express';
+
+  const app = express();
+
+  app.use((req, res, next) => {
+    const span = trace.getTracer('http').startSpan('http_request');
+
+    span.setAttribute('http.method', req.method);
+    span.setAttribute('http.url', req.url);
+
+    res.on('finish', () => {
+      span.setAttribute('http.status_code', res.statusCode);
+      span.end();
+    });
+
+    next();
+  });
+  \`\`\`
+
+  ## Propagating Context
+
+  Handling context across service boundaries:
+
+  \`\`\`typescript
+  async function makeDownstreamRequest(ctx: Context, url: string) {
+    const span = trace.getTracer('http').startSpan('downstream_call', {}, ctx);
+
+    try {
+      const headers = {};
+      propagator.inject(trace.setSpan(ctx, span), headers);
+
+      const response = await fetch(url, { headers });
+      return response;
+    } finally {
+      span.end();
+    }
+  }
+  \`\`\`
+
+  ## Sampling Strategies
+
+  Implementing intelligent sampling:
+
+  \`\`\`typescript
+  const sampler = new ParentBasedSampler({
+    root: new TraceIdRatioBased(0.1), // Sample 10% of traces
+    remoteParentSampled: new AlwaysOn(),
+    remoteParentNotSampled: new AlwaysOff(),
+    localParentSampled: new AlwaysOn(),
+    localParentNotSampled: new AlwaysOff(),
+  });
+  \`\`\`
+
+  Proper instrumentation has given us unprecedented visibility into our distributed systems.`,
       tags: ["distributed-systems", "observability", "microservices"],
     },
   ],
