@@ -9,57 +9,57 @@ const data = {
       date: "2024-01-15T09:30:21+02:00",
       content: `TypeScript continues to reshape how we write JavaScript, bringing powerful type safety and developer tools to the ecosystem. Let's explore some of the most exciting features coming to TypeScript and what they mean for developers.
 
-  <!--more-->
+<!--more-->
 
-  ## Type System Improvements
+## Type System Improvements
 
-  The upcoming version introduces more powerful template literal types:
+The upcoming version introduces more powerful template literal types:
 
-  \`\`\`typescript
-  type Routes = '/users' | '/posts' | '/comments';
-  type GET<T extends string> = \`GET \${T}\`;
-  type POST<T extends string> = \`POST \${T}\`;
+\`\`\`typescript
+type Routes = '/users' | '/posts' | '/comments';
+type GET<T extends string> = \`GET \${T}\`;
+type POST<T extends string> = \`POST \${T}\`;
 
-  // Results in: "GET /users" | "GET /posts" | "GET /comments"
-  type GETRoutes = GET<Routes>;
-  \`\`\`
+// Results in: "GET /users" | "GET /posts" | "GET /comments"
+type GETRoutes = GET<Routes>;
+\`\`\`
 
-  ## Performance Enhancements
+## Performance Enhancements
 
-  The TypeScript team has been working on compiler performance:
+The TypeScript team has been working on compiler performance:
 
-  \`\`\`typescript
-  // Before: Slow type inference
-  const result = someArray
-    .map(x => x + 1)
-    .filter(x => x > 0)
-    .reduce((acc, val) => acc + val, 0);
+\`\`\`typescript
+// Before: Slow type inference
+const result = someArray
+  .map(x => x + 1)
+  .filter(x => x > 0)
+  .reduce((acc, val) => acc + val, 0);
 
-  // After: Optimized type flow analysis
-  const result = someArray.reduce((acc, x) => {
-    const mapped = x + 1;
-    return mapped > 0 ? acc + mapped : acc;
-  }, 0);
-  \`\`\`
+// After: Optimized type flow analysis
+const result = someArray.reduce((acc, x) => {
+  const mapped = x + 1;
+  return mapped > 0 ? acc + mapped : acc;
+}, 0);
+\`\`\`
 
-  ## Developer Experience
+## Developer Experience
 
-  New error messages are more contextual and helpful:
+New error messages are more contextual and helpful:
 
-  \`\`\`typescript
-  interface User {
-    name: string;
-    age: number;
-  }
+\`\`\`typescript
+interface User {
+  name: string;
+  age: number;
+}
 
-  // Better error messages for common mistakes
-  const user: User = {
-    name: "John",
-    age: "42", // Clear error explaining number vs string mismatch
-  };
-  \`\`\`
+// Better error messages for common mistakes
+const user: User = {
+  name: "John",
+  age: "42", // Clear error explaining number vs string mismatch
+};
+\`\`\`
 
-  The future of TypeScript looks promising with these improvements in type safety, performance, and developer experience.`,
+The future of TypeScript looks promising with these improvements in type safety, performance, and developer experience.`,
       tags: ["typescript", "javascript", "programming-languages"],
     },
     {
@@ -68,72 +68,72 @@ const data = {
       date: "2024-01-15T14:22:33+02:00",
       content: `When it comes to modern systems programming, Rust and Go stand out as two popular choices. Both offer unique approaches to common problems, but with different trade-offs and philosophies.
 
-  <!--more-->
+<!--more-->
 
-  ## Memory Management
+## Memory Management
 
-  ### Rust's Ownership Model
+### Rust's Ownership Model
 
-  \`\`\`rust
-  fn main() {
-      let mut s = String::from("hello");
-      process_string(&mut s); // Borrowing
-      println!("{}", s); // Still valid here
-  }
+\`\`\`rust
+fn main() {
+    let mut s = String::from("hello");
+    process_string(&mut s); // Borrowing
+    println!("{}", s); // Still valid here
+}
 
-  fn process_string(s: &mut String) {
-      s.push_str(" world");
-  }
-  \`\`\`
+fn process_string(s: &mut String) {
+    s.push_str(" world");
+}
+\`\`\`
 
-  ### Go's Garbage Collection
+### Go's Garbage Collection
 
-  \`\`\`go
-  func main() {
-      s := "hello"
-      processed := processString(s)
-      fmt.Println(processed)
-  }
+\`\`\`go
+func main() {
+    s := "hello"
+    processed := processString(s)
+    fmt.Println(processed)
+}
 
-  func processString(s string) string {
-      return s + " world"
-  }
-  \`\`\`
+func processString(s string) string {
+    return s + " world"
+}
+\`\`\`
 
-  ## Concurrency Models
+## Concurrency Models
 
-  ### Rust's Threads and Channels
+### Rust's Threads and Channels
 
-  \`\`\`rust
-  use std::sync::mpsc;
-  use std::thread;
+\`\`\`rust
+use std::sync::mpsc;
+use std::thread;
 
-  fn main() {
-      let (tx, rx) = mpsc::channel();
+fn main() {
+    let (tx, rx) = mpsc::channel();
 
-      thread::spawn(move || {
-          tx.send("Hello from thread!").unwrap();
-      });
+    thread::spawn(move || {
+        tx.send("Hello from thread!").unwrap();
+    });
 
-      println!("{}", rx.recv().unwrap());
-  }
-  \`\`\`
+    println!("{}", rx.recv().unwrap());
+}
+\`\`\`
 
-  ### Go's Goroutines
+### Go's Goroutines
 
-  \`\`\`go
-  func main() {
-      ch := make(chan string)
+\`\`\`go
+func main() {
+    ch := make(chan string)
 
-      go func() {
-          ch <- "Hello from goroutine!"
-      }()
+    go func() {
+        ch <- "Hello from goroutine!"
+    }()
 
-      fmt.Println(<-ch)
-  }
-  \`\`\`
+    fmt.Println(<-ch)
+}
+\`\`\`
 
-  Each language has its sweet spot, and choosing between them often depends on specific project requirements and constraints.`,
+Each language has its sweet spot, and choosing between them often depends on specific project requirements and constraints.`,
       tags: ["rust", "golang", "systems-programming", "performance"],
     },
     {
@@ -142,68 +142,68 @@ const data = {
       date: "2023-12-10T11:15:00+02:00",
       content: `Distributed tracing has become essential for understanding complex microservices architectures. Here's what we learned implementing it across our organization.
 
-  <!--more-->
+<!--more-->
 
-  ## Implementation with OpenTelemetry
+## Implementation with OpenTelemetry
 
-  Here's a basic Express middleware example:
+Here's a basic Express middleware example:
 
-  \`\`\`typescript
-  import { trace } from '@opentelemetry/api';
-  import express from 'express';
+\`\`\`typescript
+import { trace } from '@opentelemetry/api';
+import express from 'express';
 
-  const app = express();
+const app = express();
 
-  app.use((req, res, next) => {
-    const span = trace.getTracer('http').startSpan('http_request');
+app.use((req, res, next) => {
+  const span = trace.getTracer('http').startSpan('http_request');
 
-    span.setAttribute('http.method', req.method);
-    span.setAttribute('http.url', req.url);
+  span.setAttribute('http.method', req.method);
+  span.setAttribute('http.url', req.url);
 
-    res.on('finish', () => {
-      span.setAttribute('http.status_code', res.statusCode);
-      span.end();
-    });
-
-    next();
+  res.on('finish', () => {
+    span.setAttribute('http.status_code', res.statusCode);
+    span.end();
   });
-  \`\`\`
 
-  ## Propagating Context
+  next();
+});
+\`\`\`
 
-  Handling context across service boundaries:
+## Propagating Context
 
-  \`\`\`typescript
-  async function makeDownstreamRequest(ctx: Context, url: string) {
-    const span = trace.getTracer('http').startSpan('downstream_call', {}, ctx);
+Handling context across service boundaries:
 
-    try {
-      const headers = {};
-      propagator.inject(trace.setSpan(ctx, span), headers);
+\`\`\`typescript
+async function makeDownstreamRequest(ctx: Context, url: string) {
+  const span = trace.getTracer('http').startSpan('downstream_call', {}, ctx);
 
-      const response = await fetch(url, { headers });
-      return response;
-    } finally {
-      span.end();
-    }
+  try {
+    const headers = {};
+    propagator.inject(trace.setSpan(ctx, span), headers);
+
+    const response = await fetch(url, { headers });
+    return response;
+  } finally {
+    span.end();
   }
-  \`\`\`
+}
+\`\`\`
 
-  ## Sampling Strategies
+## Sampling Strategies
 
-  Implementing intelligent sampling:
+Implementing intelligent sampling:
 
-  \`\`\`typescript
-  const sampler = new ParentBasedSampler({
-    root: new TraceIdRatioBased(0.1), // Sample 10% of traces
-    remoteParentSampled: new AlwaysOn(),
-    remoteParentNotSampled: new AlwaysOff(),
-    localParentSampled: new AlwaysOn(),
-    localParentNotSampled: new AlwaysOff(),
-  });
-  \`\`\`
+\`\`\`typescript
+const sampler = new ParentBasedSampler({
+  root: new TraceIdRatioBased(0.1), // Sample 10% of traces
+  remoteParentSampled: new AlwaysOn(),
+  remoteParentNotSampled: new AlwaysOff(),
+  localParentSampled: new AlwaysOn(),
+  localParentNotSampled: new AlwaysOff(),
+});
+\`\`\`
 
-  Proper instrumentation has given us unprecedented visibility into our distributed systems.`,
+Proper instrumentation has given us unprecedented visibility into our distributed systems.`,
       tags: ["distributed-systems", "observability", "microservices"],
     },
   ],
