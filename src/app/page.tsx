@@ -26,7 +26,7 @@ export default async function Home() {
     .sort((a, b) => (b < a ? -1 : 1));
 
   return (
-    <div className="pt-4">
+    <div className="pt-4 divide-y-2 dark:divide-gray-800">
       {sortedDates.map((d) => (
         <Day
           key={d.toDateString()}
