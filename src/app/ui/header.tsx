@@ -37,7 +37,7 @@ export default function Header() {
   const links = [
     {
       name: "Blog",
-      href: "/blog",
+      href: "/",
     },
     {
       name: "Talks",
