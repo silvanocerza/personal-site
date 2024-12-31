@@ -146,7 +146,7 @@ async function renderDate(date: Date) {
 
 export default async function Day({ date, posts }: Props) {
   return (
-    <div className="flex gap-4 pt-4 pb-4">
+    <div className="flex gap-4 pt-8 pb-4">
       <div className="hidden md:block">{renderDate(date)}</div>
       <div className="flex-1 flex flex-col gap-4">
         <div className="md:hidden">{renderDate(date)}</div>
