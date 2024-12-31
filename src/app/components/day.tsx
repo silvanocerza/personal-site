@@ -87,7 +87,7 @@ async function renderPost(post: Post) {
       <div>
         <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
         <p>
-          [...{" "}
+          [
           <a
             className="
             underline
@@ -100,7 +100,7 @@ async function renderPost(post: Post) {
             "
             href={`/posts/${post.slug}`}
           >
-            {wordCount} words
+            {wordCount} words ↪
           </a>
           ]
         </p>
