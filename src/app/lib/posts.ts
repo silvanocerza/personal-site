@@ -1,8 +1,6 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
 import toml from "toml";
 
 // Options to parse frontmatter
@@ -70,14 +68,13 @@ async function readPostFile(postFile: string): Promise<Post> {
   const slug = path.basename(postFile, ".md");
   const fileContents = fs.readFileSync(postFile, "utf8");
   const { data, excerpt, content } = matter(fileContents, mattersOptions);
-  const processedContent = await remark().use(html).process(content);
 
   return {
     slug,
     title: data.title,
     date: new Date(data.date).toISOString(),
     excerpt: excerpt || "",
-    content: processedContent.toString(),
+    content: content,
     tags: data.tags || [],
   };
 }
@@ -97,13 +94,12 @@ async function readTalkFile(postFile: string): Promise<Talk> {
   const slug = path.basename(postFile, ".md");
   const fileContents = fs.readFileSync(postFile, "utf8");
   const { data, content } = matter(fileContents, mattersOptions);
-  const processedContent = await remark().use(html).process(content);
 
   return {
     slug,
     title: data.title,
     date: new Date(data.date).toISOString(),
-    content: processedContent.toString(),
+    content: content,
     tags: data.tags || [],
   };
 }
@@ -122,12 +118,11 @@ async function readThoughtFile(thoughtFile: string): Promise<Thought> {
   const slug = path.basename(thoughtFile, ".md");
   const fileContents = fs.readFileSync(thoughtFile, "utf8");
   const { data, content } = matter(fileContents, mattersOptions);
-  const processedContent = await remark().use(html).process(content);
 
   return {
     slug,
     date: new Date(data.date).toISOString(),
-    content: processedContent.toString(),
+    content: content,
     tags: data.tags || [],
   };
 }
