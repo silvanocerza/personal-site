@@ -13,7 +13,7 @@ const mattersOptions = {
   },
   delimiters: "+++",
   excerpt: true,
-  excerpt_separator: "<!--more-->",
+  excerpt_separator: "---",
 };
 
 type blogData = {

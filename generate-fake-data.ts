@@ -9,7 +9,7 @@ const data = {
       date: "2024-01-15T09:30:21+02:00",
       content: `TypeScript continues to reshape how we write JavaScript, bringing powerful type safety and developer tools to the ecosystem. Let's explore some of the most exciting features coming to TypeScript and what they mean for developers.
 
-<!--more-->
+---
 
 ## Type System Improvements
 
@@ -68,7 +68,7 @@ The future of TypeScript looks promising with these improvements in type safety,
       date: "2024-01-15T14:22:33+02:00",
       content: `When it comes to modern systems programming, Rust and Go stand out as two popular choices. Both offer unique approaches to common problems, but with different trade-offs and philosophies.
 
-<!--more-->
+---
 
 ## Memory Management
 
@@ -142,7 +142,7 @@ Each language has its sweet spot, and choosing between them often depends on spe
       date: "2023-12-10T11:15:00+02:00",
       content: `Distributed tracing has become essential for understanding complex microservices architectures. Here's what we learned implementing it across our organization.
 
-<!--more-->
+---
 
 ## Implementation with OpenTelemetry
 
