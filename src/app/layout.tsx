@@ -4,6 +4,7 @@ import Header from "@/app/ui/header";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { ThemeProvider } from "next-themes";
+import Footer from "@/app/ui/footer";
 
 config.autoAddCss = false;
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <div className="mx-auto max-w-[800px] p-4">
             <Header />
             {children}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
