@@ -140,6 +140,7 @@ export async function getBlogContent(): Promise<blogData> {
     fs
       .readdirSync(postsDir, { recursive: true })
       .map(String)
+      .filter((p) => p.endsWith(".md"))
       .map((p) => path.join(postsDir, p))
       .map(readPostFile),
   );
@@ -148,6 +149,7 @@ export async function getBlogContent(): Promise<blogData> {
     fs
       .readdirSync(thoughtsDir, { recursive: true })
       .map(String)
+      .filter((p) => p.endsWith(".md"))
       .map((p) => path.join(thoughtsDir, p))
       .map(readThoughtFile),
   );
@@ -156,6 +158,7 @@ export async function getBlogContent(): Promise<blogData> {
     fs
       .readdirSync(talksDir, { recursive: true })
       .map(String)
+      .filter((p) => p.endsWith(".md"))
       .map((p) => path.join(talksDir, p))
       .map(readTalkFile),
   );
