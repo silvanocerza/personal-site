@@ -23,6 +23,18 @@ const a = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
+const hr = ({ ...props }) => {
+  return (
+    <hr
+      className="
+      border-t
+      border-slate-400
+      dark:border-slate-700"
+      {...props}
+    />
+  );
+};
+
 const h1 = ({ children, ...props }: { children: ReactNode }) => {
   return (
     <h2 className="text-2xl" {...props}>
@@ -200,6 +212,7 @@ export default async function Markdown({ children }: { children: string }) {
       rehypePlugins={[rehypeRaw]}
       components={{
         a: a,
+        hr: hr,
         h1: h1,
         h2: h2,
         h3: h3,
