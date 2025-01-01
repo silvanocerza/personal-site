@@ -5,6 +5,24 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { xonokai } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { ReactNode } from "react";
 
+const a = ({ children, ...props }: { children: ReactNode }) => {
+  return (
+    <a
+      className="
+      underline
+      underline-offset-2
+      decoration-1
+      decoration-green-500
+      hover:text-green-400
+      hover:dark:text-green-200
+      dark:decoration-green-200"
+      {...props}
+    >
+      {children}
+    </a>
+  );
+};
+
 const h1 = ({ children, ...props }: { children: ReactNode }) => {
   return (
     <h2 className="text-2xl" {...props}>
@@ -57,14 +75,15 @@ const table = ({ children, ...props }: { children: ReactNode }) => {
   return (
     <div className="flex justify-center">
       <table
-        className="table-auto
-      border-collapse
-      border
-      w-fit
-      min-w-0
-      whitespace-nowrap
-      border-slate-400
-      dark:border-slate-700"
+        className="
+        table-auto
+        border-collapse
+        border
+        w-fit
+        min-w-0
+        whitespace-nowrap
+        border-slate-400
+        dark:border-slate-700"
         {...props}
       >
         {children}
@@ -180,6 +199,7 @@ export default async function Markdown({ children }: { children: string }) {
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}
       components={{
+        a: a,
         h1: h1,
         h2: h2,
         h3: h3,
