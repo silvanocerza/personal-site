@@ -25,10 +25,29 @@ const a = ({ children, ...props }: { children: ReactNode }) => {
 };
 
 const p = ({ children, ...props }: { children: ReactNode }) => {
+  // If we don't do this paragraphs that contain only text will be centered by default
+  // and we don't want that.
+  const selfCenter = typeof children !== "string" ? "self-center" : "";
   return (
-    <p className="w-fit self-center" {...props}>
+    <p className={`w-fit ${selfCenter}`} {...props}>
       {children}
     </p>
+  );
+};
+
+const ol = ({ children, ...props }: { children: ReactNode }) => {
+  return (
+    <ol className="w-fit list-decimal list-inside" {...props}>
+      {children}
+    </ol>
+  );
+};
+
+const ul = ({ children, ...props }: { children: ReactNode }) => {
+  return (
+    <ul className="w-fit list-disc list-inside" {...props}>
+      {children}
+    </ul>
   );
 };
 
@@ -237,6 +256,8 @@ export default async function Markdown({ children }: { children: string }) {
       components={{
         a: a,
         p: p,
+        ol: ol,
+        ul: ul,
         hr: hr,
         h1: h1,
         h2: h2,
