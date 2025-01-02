@@ -234,6 +234,16 @@ const code = ({
 };
 
 const img = async ({ src, alt, ...props }: { src: string; alt: string }) => {
+  // Markdown files might reference images with a leading "./".
+  // This is a problem for Next.js as it would search for the image in the
+  // path relative to the html page referencing it.
+  // If we remove the leading "." it will instead search for the image using
+  // the path relative to the main endpoint. Since we store the images in the
+  // public folder, this will work as that folder is served relative to the root.
+  if (src.startsWith("./")) {
+    src = src.replace("./", "/");
+  }
+
   return (
     <Image
       className="w-fit"
