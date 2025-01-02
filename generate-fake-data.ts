@@ -289,7 +289,7 @@ Proper instrumentation has given us unprecedented visibility into our distribute
   const content_dir = path.join(root, "content");
 
   // Ensure directories exist
-  ["posts", "thoughts", "talks"].forEach((dir) => {
+  ["posts", "thoughts"].forEach((dir) => {
     fs.mkdirSync(path.join(content_dir, dir), { recursive: true });
   });
 
