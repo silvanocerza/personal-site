@@ -40,12 +40,12 @@ export default function Header() {
       href: "/",
     },
     {
-      name: "Resume",
-      href: "https://resume.silvanocerza.com",
-    },
-    {
       name: "About",
       href: "/about",
+    },
+    {
+      name: "Resume",
+      href: "https://resume.silvanocerza.com",
     },
   ];
 
@@ -92,7 +92,7 @@ export default function Header() {
           </p>
         </div>
       </div>
-      <div className="flex flex-row pt-2 justify-between">
+      <div className="flex flex-row pt-2 justify-around">
         {links.map(({ name, href }) => (
           <Link
             key={href}
