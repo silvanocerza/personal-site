@@ -18,10 +18,10 @@ export default async function Page({
   const { posts, thoughts } = await getBlogContent();
   const { slug } = await params;
   const post: Post | Thought | undefined = [...posts, ...thoughts].find(
-    (p) => p.slug === slug,
+    (p) => encodeURIComponent(p.slug) === slug,
   );
   if (!post) {
-    return <div>Post not found</div>;
+    throw new Error(`No post found with slug ${slug}`);
   }
 
   return (

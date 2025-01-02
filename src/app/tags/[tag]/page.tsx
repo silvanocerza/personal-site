@@ -17,9 +17,12 @@ export default async function Page({
   const { posts, thoughts } = await getBlogContent();
   const { tag } = await params;
 
-  const tagged = [...posts, ...thoughts].filter((p) => p.tags.includes(tag));
+  const tagged = [...posts, ...thoughts].filter((p) =>
+    p.tags.includes(decodeURIComponent(tag)),
+  );
+
   if (tagged.length === 0) {
-    return <div>Tag {tag} not found.</div>;
+    throw new Error(`No post found with slug ${tag}`);
   }
 
   // Group posts and thoughts by date
