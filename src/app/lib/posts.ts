@@ -34,6 +34,7 @@ export interface Post {
   content: string;
   excerpt: string;
   tags: string[];
+  draft: boolean;
 }
 
 export interface Thought {
@@ -41,6 +42,7 @@ export interface Thought {
   date: string;
   content: string;
   tags: string[];
+  draft: boolean;
 }
 
 /**
@@ -54,7 +56,7 @@ tags: string[]
 ```
 The frontmatter section is parsed with toml and must start and end with `+++`.
 */
-async function readPostFile(postFile: string): Promise<Post> {
+function readPostFile(postFile: string): Post {
   const slug = path.basename(postFile, ".md");
   const fileContents = fs.readFileSync(postFile, "utf8");
   const { data, excerpt, content } = matter(fileContents, mattersOptions);
@@ -66,6 +68,7 @@ async function readPostFile(postFile: string): Promise<Post> {
     excerpt: excerpt || "",
     content: content,
     tags: data.tags || [],
+    draft: data.draft || false,
   };
 }
 
@@ -79,7 +82,7 @@ tags: string[]
 ```
 The frontmatter section is parsed with toml and must start and end with `+++`.
 */
-async function readThoughtFile(thoughtFile: string): Promise<Thought> {
+function readThoughtFile(thoughtFile: string): Thought {
   const slug = path.basename(thoughtFile, ".md");
   const fileContents = fs.readFileSync(thoughtFile, "utf8");
   const { data, content } = matter(fileContents, mattersOptions);
@@ -89,6 +92,7 @@ async function readThoughtFile(thoughtFile: string): Promise<Thought> {
     date: new Date(data.date).toISOString(),
     content: content,
     tags: data.tags || [],
+    draft: data.draft || false,
   };
 }
 
@@ -102,28 +106,26 @@ export async function getBlogContent(): Promise<blogData> {
 
   let posts: Post[];
   if (fs.existsSync(postsDir)) {
-    posts = await Promise.all(
-      fs
-        .readdirSync(postsDir, { recursive: true })
-        .map(String)
-        .filter((p) => p.endsWith(".md"))
-        .map((p) => path.join(postsDir, p))
-        .map(readPostFile),
-    );
+    posts = fs
+      .readdirSync(postsDir, { recursive: true })
+      .map(String)
+      .filter((p) => p.endsWith(".md"))
+      .map((p) => path.join(postsDir, p))
+      .map(readPostFile)
+      .filter((p) => !p.draft);
   } else {
     posts = [];
   }
 
   let thoughts: Thought[];
   if (fs.existsSync(thoughtsDir)) {
-    thoughts = await Promise.all(
-      fs
-        .readdirSync(thoughtsDir, { recursive: true })
-        .map(String)
-        .filter((p) => p.endsWith(".md"))
-        .map((p) => path.join(thoughtsDir, p))
-        .map(readThoughtFile),
-    );
+    thoughts = fs
+      .readdirSync(thoughtsDir, { recursive: true })
+      .map(String)
+      .filter((p) => p.endsWith(".md"))
+      .map((p) => path.join(thoughtsDir, p))
+      .map(readThoughtFile)
+      .filter((t) => !t.draft);
   } else {
     thoughts = [];
   }
