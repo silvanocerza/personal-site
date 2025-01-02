@@ -4,6 +4,7 @@ import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { xonokai } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { ReactNode } from "react";
+import Image from "next/image";
 
 const a = ({ children, ...props }: { children: ReactNode }) => {
   return (
@@ -20,6 +21,14 @@ const a = ({ children, ...props }: { children: ReactNode }) => {
     >
       {children}
     </a>
+  );
+};
+
+const p = ({ children, ...props }: { children: ReactNode }) => {
+  return (
+    <p className="w-fit self-center" {...props}>
+      {children}
+    </p>
   );
 };
 
@@ -205,6 +214,21 @@ const code = ({
   );
 };
 
+const img = async ({ src, alt, ...props }: { src: string; alt: string }) => {
+  return (
+    <Image
+      className="w-fit"
+      src={src}
+      alt={alt}
+      width={0}
+      height={0}
+      sizes="100vw"
+      style={{ width: "auto", height: "auto" }}
+      {...props}
+    />
+  );
+};
+
 export default async function Markdown({ children }: { children: string }) {
   return (
     <ReactMarkdown
@@ -212,6 +236,7 @@ export default async function Markdown({ children }: { children: string }) {
       rehypePlugins={[rehypeRaw]}
       components={{
         a: a,
+        p: p,
         hr: hr,
         h1: h1,
         h2: h2,
@@ -223,6 +248,7 @@ export default async function Markdown({ children }: { children: string }) {
         th: th,
         td: td,
         code: code,
+        img: img,
       }}
     >
       {children}
