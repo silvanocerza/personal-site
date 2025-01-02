@@ -40,10 +40,6 @@ export default function Header() {
       href: "/",
     },
     {
-      name: "Talks",
-      href: "/talks",
-    },
-    {
       name: "Resume",
       href: "https://resume.silvanocerza.com",
     },
