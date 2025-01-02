@@ -4,7 +4,10 @@ import Markdown from "../components/markdown";
 
 export default async function About() {
   const aboutFile = path.join("content", "about.md");
-  const content = fs.readFileSync(aboutFile, "utf-8");
+  let content = "";
+  if (fs.existsSync(aboutFile)) {
+    content = fs.readFileSync(aboutFile, "utf-8");
+  }
 
   return (
     <div className="flex flex-col gap-4">

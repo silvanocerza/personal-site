@@ -100,23 +100,33 @@ export async function getBlogContent(): Promise<blogData> {
   const postsDir = path.join("content", "posts");
   const thoughtsDir = path.join("content", "thoughts");
 
-  const posts = await Promise.all(
-    fs
-      .readdirSync(postsDir, { recursive: true })
-      .map(String)
-      .filter((p) => p.endsWith(".md"))
-      .map((p) => path.join(postsDir, p))
-      .map(readPostFile),
-  );
+  let posts: Post[];
+  if (fs.existsSync(postsDir)) {
+    posts = await Promise.all(
+      fs
+        .readdirSync(postsDir, { recursive: true })
+        .map(String)
+        .filter((p) => p.endsWith(".md"))
+        .map((p) => path.join(postsDir, p))
+        .map(readPostFile),
+    );
+  } else {
+    posts = [];
+  }
 
-  const thoughts = await Promise.all(
-    fs
-      .readdirSync(thoughtsDir, { recursive: true })
-      .map(String)
-      .filter((p) => p.endsWith(".md"))
-      .map((p) => path.join(thoughtsDir, p))
-      .map(readThoughtFile),
-  );
+  let thoughts: Thought[];
+  if (fs.existsSync(thoughtsDir)) {
+    thoughts = await Promise.all(
+      fs
+        .readdirSync(thoughtsDir, { recursive: true })
+        .map(String)
+        .filter((p) => p.endsWith(".md"))
+        .map((p) => path.join(thoughtsDir, p))
+        .map(readThoughtFile),
+    );
+  } else {
+    thoughts = [];
+  }
 
   dataCache = {
     posts: posts.sort((a, b) => (b.date < a.date ? -1 : 1)),
