@@ -282,43 +282,6 @@ Proper instrumentation has given us unprecedented visibility into our distribute
       tags: ["setup", "terminal", "productivity"],
     },
   ],
-  talks: [
-    {
-      slug: "rust-for-js-devs",
-      title: "Rust for JavaScript Developers",
-      date: "2024-02-15T14:00:00+02:00",
-      content: "Introduction to Rust from a JS developer's perspective",
-      tags: ["rust", "javascript", "systems-programming"],
-    },
-    {
-      slug: "microservices-patterns",
-      title: "Microservices Patterns in Practice",
-      date: "2024-01-20T15:30:00+02:00",
-      content: "Real-world patterns and anti-patterns in microservices",
-      tags: ["microservices", "architecture", "best-practices"],
-    },
-    {
-      slug: "typescript-advanced",
-      title: "Advanced TypeScript Patterns",
-      date: "2023-12-05T16:45:00+02:00",
-      content: "Deep dive into advanced TypeScript features and patterns",
-      tags: ["typescript", "advanced", "patterns"],
-    },
-    {
-      slug: "graphql-scale",
-      title: "Scaling GraphQL in Production",
-      date: "2023-11-10T13:20:00+02:00",
-      content: "Lessons learned scaling GraphQL APIs in production",
-      tags: ["graphql", "scaling", "api"],
-    },
-    {
-      slug: "nodejs-performance",
-      title: "Node.js Performance Tuning",
-      date: "2023-10-01T11:00:00+02:00",
-      content: "Optimizing Node.js applications for performance",
-      tags: ["nodejs", "performance", "optimization"],
-    },
-  ],
 };
 
 (async function createFakeData() {
@@ -352,18 +315,6 @@ tags = ${JSON.stringify(thought.tags)}
 +++
 
 ${thought.content}`;
-    fs.writeFileSync(filepath, content);
-  });
-
-  data.talks.forEach((talk) => {
-    const filepath = path.join(content_dir, "talks", `${talk.slug}.md`);
-    const content = `+++
-title = "${talk.title}"
-date = "${talk.date}"
-tags = ${JSON.stringify(talk.tags)}
-+++
-
-${talk.content}`;
     fs.writeFileSync(filepath, content);
   });
 })();
