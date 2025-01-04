@@ -9,7 +9,7 @@ export async function GET() {
   const title = "Silvano Cerza Thoughts";
   const description =
     "Random thoughts about anything, mostly software development.";
-  const feed: Feed = createFeed(title, description, thoughts);
+  const feed: Feed = await createFeed(title, description, thoughts);
 
   return new Response(feed.atom1(), {
     headers: {
