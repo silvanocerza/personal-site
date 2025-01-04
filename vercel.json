@@ -1,4 +1,40 @@
 {
   "cleanUrls": true,
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/resume",
+      "destination": "https://resume.silvanocerza.com",
+      "statusCode": 301
+    }
+  ],
+  "headers": [
+    {
+      "source": "/atom/all",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/atom+xml; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/atom/posts",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/atom+xml; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/atom/thoughts",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/atom+xml; charset=utf-8"
+        }
+      ]
+    }
+  ]
 }
