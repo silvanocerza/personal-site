@@ -3,7 +3,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { xonokai } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { ReactNode } from "react";
+import React from "react";
 import Image from "next/image";
 
 const a = ({ children, ...props }: { children: ReactNode }) => {
@@ -24,10 +24,18 @@ const a = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const p = ({ children, ...props }: { children: ReactNode }) => {
+const p = ({ children, ...props }: { children: React.ReactNode }) => {
   // If we don't do this paragraphs that contain only text will be centered by default
   // and we don't want that.
-  const selfCenter = typeof children !== "string" ? "self-center" : "";
+  const childArray = React.Children.toArray(children);
+  const hasNonTextOrLink = childArray.some(
+    (child) =>
+      !(
+        typeof child === "string" ||
+        (React.isValidElement(child) && child.type.name === "a")
+      ),
+  );
+  const selfCenter = hasNonTextOrLink ? "self-center" : "";
   return (
     <p className={`w-fit ${selfCenter}`} {...props}>
       {children}
