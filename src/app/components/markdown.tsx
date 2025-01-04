@@ -27,14 +27,9 @@ const a = ({ children, ...props }: { children: React.ReactNode }) => {
 const p = ({ children, ...props }: { children: React.ReactNode }) => {
   // If we don't do this paragraphs that contain only text will be centered by default
   // and we don't want that.
-  const childArray = React.Children.toArray(children);
+  const childArray = Array.isArray(children) ? children : [children];
   const hasNonTextOrLink = childArray.some(
-    (child) =>
-      !(
-        typeof child === "string" ||
-        // @ts-expect-error Property 'name' does not exist on type 'string | JSXElementConstructor<any>'
-        (React.isValidElement(child) && child.type.name === "a")
-      ),
+    (child) => !(typeof child === "string" || (child && child.type === a)),
   );
   const selfCenter = hasNonTextOrLink ? "self-center" : "";
   return (
