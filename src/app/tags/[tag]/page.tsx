@@ -1,7 +1,6 @@
 import Day from "@/app/components/day";
 import { getBlogContent } from "@/app/lib/posts";
 import { groupByDay } from "@/app/lib/datetime";
-import type { Post, Thought } from "@/app/lib/posts";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -14,7 +13,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ tag: string }>;
 }): Promise<Metadata> {
   const { posts, thoughts } = await getBlogContent();
   const { tag } = await params;
