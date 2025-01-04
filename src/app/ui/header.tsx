@@ -30,7 +30,7 @@ export default function Header() {
     },
     {
       icon: faRss,
-      link: "/rss.xml",
+      link: "/atom/all",
     },
   ];
 

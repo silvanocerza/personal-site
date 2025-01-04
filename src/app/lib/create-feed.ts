@@ -16,11 +16,15 @@ const customImagePlugin = () => (tree: Root) => {
   // We handle image with relative path in a different way than when we
   // render for the browser as we need to use the full URL, otherwise
   // the feed reader won't be able to find the image.
-  visit(tree, "element", (node) => {
-    if (node.tagName === "img" && node.properties.src?.startsWith("./")) {
-      node.properties.src = node.properties.src.replace("./", `${BASE_URL}/`);
-    }
-  });
+  visit(
+    tree,
+    "element",
+    (node: { tagName: string; properties: { src?: string } }) => {
+      if (node.tagName === "img" && node.properties.src?.startsWith("./")) {
+        node.properties.src = node.properties.src.replace("./", `${BASE_URL}/`);
+      }
+    },
+  );
 };
 
 /**
