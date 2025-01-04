@@ -9,8 +9,12 @@ import Footer from "@/app/ui/footer";
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
-  title: "Silvano Cerza",
-  description: "Hey! I'm Silvano and this is my website.",
+  title: {
+    template: "Silvano Cerza | %s",
+    default: "Silvano Cerza",
+  },
+  description:
+    "Hey! I'm Silvano and this is my website. You may find interesting things here.",
 };
 
 export default function RootLayout({

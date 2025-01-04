@@ -2,12 +2,31 @@ import Footer from "@/app/components/post-footer";
 import { getBlogContent } from "@/app/lib/posts";
 import type { Post, Thought } from "@/app/lib/posts";
 import Markdown from "@/app/components/markdown";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const { posts, thoughts } = await getBlogContent();
   return [...posts, ...thoughts].map((p) => ({
     slug: p.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const { posts, thoughts } = await getBlogContent();
+  const { slug } = await params;
+  const post: Post | Thought | undefined = [...posts, ...thoughts].find(
+    (p) => encodeURIComponent(p.slug) === slug,
+  );
+  if (!post) {
+    throw new Error(`No post found with slug ${slug}`);
+  }
+  return {
+    title: ("title" in post ? post.title : "Some thoughts") as string,
+  };
 }
 
 export default async function Page({

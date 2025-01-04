@@ -1,6 +1,11 @@
 import path from "path";
 import fs from "fs";
 import Markdown from "../components/markdown";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 export default async function About() {
   const aboutFile = path.join("content", "about.md");
