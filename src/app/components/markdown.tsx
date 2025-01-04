@@ -6,7 +6,7 @@ import { xonokai } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import React from "react";
 import Image from "next/image";
 
-const a = ({ children, ...props }: { children: ReactNode }) => {
+const a = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <a
       className="
@@ -32,6 +32,7 @@ const p = ({ children, ...props }: { children: React.ReactNode }) => {
     (child) =>
       !(
         typeof child === "string" ||
+        // @ts-expect-error Property 'name' does not exist on type 'string | JSXElementConstructor<any>'
         (React.isValidElement(child) && child.type.name === "a")
       ),
   );
@@ -43,7 +44,7 @@ const p = ({ children, ...props }: { children: React.ReactNode }) => {
   );
 };
 
-const ol = ({ children, ...props }: { children: ReactNode }) => {
+const ol = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <ol className="w-fit list-decimal list-inside" {...props}>
       {children}
@@ -51,7 +52,7 @@ const ol = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const ul = ({ children, ...props }: { children: ReactNode }) => {
+const ul = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <ul className="w-fit list-disc list-inside" {...props}>
       {children}
@@ -71,7 +72,7 @@ const hr = ({ ...props }) => {
   );
 };
 
-const h1 = ({ children, ...props }: { children: ReactNode }) => {
+const h1 = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <h2 className="text-2xl" {...props}>
       {children}
@@ -79,7 +80,7 @@ const h1 = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const h2 = ({ children, ...props }: { children: ReactNode }) => {
+const h2 = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <h2 className="text-xl" {...props}>
       {children}
@@ -87,7 +88,7 @@ const h2 = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const h3 = ({ children, ...props }: { children: ReactNode }) => {
+const h3 = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <h2 className="text-lg" {...props}>
       {children}
@@ -95,7 +96,7 @@ const h3 = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const blockquote = ({ children, ...props }: { children: ReactNode }) => {
+const blockquote = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <blockquote
       className="
@@ -119,7 +120,7 @@ const blockquote = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const table = ({ children, ...props }: { children: ReactNode }) => {
+const table = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <div className="flex justify-center">
       <table
@@ -140,7 +141,7 @@ const table = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const thead = ({ children, ...props }: { children: ReactNode }) => {
+const thead = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <thead
       className="
@@ -159,7 +160,7 @@ const thead = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const tbody = ({ children, ...props }: { children: ReactNode }) => {
+const tbody = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <tbody
       className="
@@ -174,7 +175,7 @@ const tbody = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const th = ({ children, ...props }: { children: ReactNode }) => {
+const th = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <th
       className="
@@ -195,7 +196,7 @@ const th = ({ children, ...props }: { children: ReactNode }) => {
   );
 };
 
-const td = ({ children, ...props }: { children: ReactNode }) => {
+const td = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <td
       className="
@@ -220,7 +221,7 @@ const code = ({
 }: {
   inline: boolean;
   className: string;
-  children: ReactNode;
+  children: React.ReactNode;
 }) => {
   const match = /language-(\w+)/.exec(className || "");
 
