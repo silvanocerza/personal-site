@@ -1,29 +1,23 @@
 import fs from "fs";
 import path from "path";
-import * as tar from "tar";
 import os from "os";
-import { Readable } from "stream";
-import { pipeline } from "stream/promises";
 import { globSync } from "glob";
+import { spawnSync } from "child_process";
 
-const SOURCE_REPO =
-  "https://api.github.com/repos/silvanocerza/blog-sources/tarball";
+const SOURCE_REPO = "https://github.com/silvanocerza/blog-sources.git";
+
+const cloneRepo = (url: string, dir: string) => {
+  const res = spawnSync("git", ["clone", "--depth", "1", url, dir]);
+  if (res.status !== 0) {
+    throw new Error(`Failed to clone repository: ${res.stderr}`);
+  }
+};
 
 (async function fetchSources() {
   const root = path.dirname(__filename);
   const content_dir = path.join(root, "content");
   const temp_dir = path.join(os.tmpdir(), "blog-sources");
-
-  const response = await fetch(SOURCE_REPO);
-  if (!response.ok || !response.body) {
-    throw new Error(`Failed to fetch sources`);
-  }
-
-  fs.mkdirSync(temp_dir, { recursive: true });
-  fs.rmSync(content_dir, { recursive: true, force: true });
-
-  const stream = Readable.fromWeb(response.body as any);
-  await pipeline(stream, tar.extract({ cwd: temp_dir, strip: 1 }));
+  cloneRepo(SOURCE_REPO, temp_dir);
 
   fs.renameSync(path.join(temp_dir, "content"), content_dir);
   fs.rmSync(temp_dir, { recursive: true });
