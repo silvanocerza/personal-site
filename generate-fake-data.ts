@@ -296,11 +296,11 @@ Proper instrumentation has given us unprecedented visibility into our distribute
   // Generate files
   data.posts.forEach((post) => {
     const filepath = path.join(content_dir, "posts", `${post.slug}.md`);
-    const content = `+++
-title = "${post.title}"
-date = "${post.date}"
-tags = ${JSON.stringify(post.tags)}
-+++
+    const content = `---
+title: "${post.title}"
+date: ${post.date}
+tags: ${JSON.stringify(post.tags)}
+---
 
 ${post.content}`;
     fs.writeFileSync(filepath, content);
@@ -309,10 +309,10 @@ ${post.content}`;
   // Similar for thoughts and talks
   data.thoughts.forEach((thought) => {
     const filepath = path.join(content_dir, "thoughts", `${thought.slug}.md`);
-    const content = `+++
-date = "${thought.date}"
-tags = ${JSON.stringify(thought.tags)}
-+++
+    const content = `---
+date: ${thought.date}
+tags: ${JSON.stringify(thought.tags)}
+---
 
 ${thought.content}`;
     fs.writeFileSync(filepath, content);

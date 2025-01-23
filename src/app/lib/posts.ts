@@ -1,17 +1,11 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import toml from "toml";
 
 // Options to parse frontmatter
 const mattersOptions = {
-  language: "toml",
-  engines: {
-    toml: {
-      parse: toml.parse.bind(toml),
-    },
-  },
-  delimiters: "+++",
+  language: "yaml",
+  delimiters: "---",
   excerpt: true,
   excerpt_separator: "---",
 };
