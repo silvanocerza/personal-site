@@ -19,7 +19,7 @@ const cloneRepo = (url: string, dir: string) => {
   const temp_dir = path.join(os.tmpdir(), "blog-sources");
   cloneRepo(SOURCE_REPO, temp_dir);
 
-  fs.renameSync(path.join(temp_dir, "content"), content_dir);
+  fs.cpSync(path.join(temp_dir, "content"), content_dir);
   fs.rmSync(temp_dir, { recursive: true });
 
   const files = globSync("content/**/*.*", { nodir: true });
@@ -30,6 +30,6 @@ const cloneRepo = (url: string, dir: string) => {
     const targetPath = path.join("public", relativePath);
 
     fs.mkdirSync(path.dirname(targetPath), { recursive: true });
-    fs.renameSync(file, targetPath);
+    fs.cpSync(file, targetPath);
   });
 })();
