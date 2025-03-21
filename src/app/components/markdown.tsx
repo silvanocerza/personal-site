@@ -29,11 +29,16 @@ const p = ({ children, ...props }: { children: React.ReactNode }) => {
   // and we don't want that.
   const childArray = Array.isArray(children) ? children : [children];
   const hasNonTextOrLink = childArray.some(
-    (child) => !(typeof child === "string" || (child && child.type === a)),
+    (child) =>
+      !(
+        typeof child === "string" ||
+        (child && child.type === a) ||
+        child.type === code
+      ),
   );
-  const selfCenter = hasNonTextOrLink ? "self-center" : "";
+  const selfCenter = hasNonTextOrLink ? " self-center" : "";
   return (
-    <p className={`w-fit ${selfCenter}`} {...props}>
+    <p className={`w-fit${selfCenter}`} {...props}>
       {children}
     </p>
   );
