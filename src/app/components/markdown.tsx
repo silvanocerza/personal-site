@@ -231,7 +231,17 @@ const code = ({
       {String(children).replace(/\n$/, "")}
     </SyntaxHighlighter>
   ) : (
-    <code className={className} {...props}>
+    <code
+      className={`
+      text-[85%]
+      px-1
+      py-0.5
+      rounded
+      bg-gray-400/20
+      ${className}
+      `}
+      {...props}
+    >
       {children}
     </code>
   );
