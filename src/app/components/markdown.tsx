@@ -6,6 +6,22 @@ import { xonokai } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import React from "react";
 import Image from "next/image";
 
+// Every component receives a node prop, that is the original
+// Element from hast, the library that create the AST of the document.
+// If we don't remove it all components will end up with a node="[object Object]"
+// key in the HTML. That's ugly, consumes more data and useless, so we remove this
+// property.
+// See react-markdown docs for more info:
+// https://github.com/remarkjs/react-markdown?tab=readme-ov-file#appendix-b-components
+// We can't the type of every property, it's fine using any here
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const filterNodeProp = (props: { [key: string]: any }) => {
+  // We're ignoring that variable on purpose to remove it from the list of properties
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { node, ...otherProps } = props;
+  return otherProps;
+};
+
 const a = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
     <a
@@ -17,7 +33,7 @@ const a = ({ children, ...props }: { children: React.ReactNode }) => {
       hover:text-green-400
       hover:dark:text-green-200
       dark:decoration-green-200"
-      {...props}
+      {...filterNodeProp(props)}
     >
       {children}
     </a>
@@ -38,7 +54,7 @@ const p = ({ children, ...props }: { children: React.ReactNode }) => {
   );
   const selfCenter = hasNonTextOrLink ? " self-center" : "";
   return (
-    <p className={`w-fit${selfCenter}`} {...props}>
+    <p className={`w-fit${selfCenter}`} {...filterNodeProp(props)}>
       {children}
     </p>
   );
@@ -46,7 +62,7 @@ const p = ({ children, ...props }: { children: React.ReactNode }) => {
 
 const ol = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
-    <ol className="w-fit list-decimal list-inside" {...props}>
+    <ol className="w-fit list-decimal list-inside" {...filterNodeProp(props)}>
       {children}
     </ol>
   );
@@ -54,7 +70,7 @@ const ol = ({ children, ...props }: { children: React.ReactNode }) => {
 
 const ul = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
-    <ul className="w-fit list-disc list-inside" {...props}>
+    <ul className="w-fit list-disc list-inside" {...filterNodeProp(props)}>
       {children}
     </ul>
   );
@@ -67,14 +83,14 @@ const hr = ({ ...props }) => {
       border-t
       border-slate-400
       dark:border-slate-700"
-      {...props}
+      {...filterNodeProp(props)}
     />
   );
 };
 
 const h1 = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
-    <h2 className="text-2xl" {...props}>
+    <h2 className="text-2xl" {...filterNodeProp(props)}>
       {children}
     </h2>
   );
@@ -82,7 +98,7 @@ const h1 = ({ children, ...props }: { children: React.ReactNode }) => {
 
 const h2 = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
-    <h2 className="text-xl" {...props}>
+    <h2 className="text-xl" {...filterNodeProp(props)}>
       {children}
     </h2>
   );
@@ -90,7 +106,7 @@ const h2 = ({ children, ...props }: { children: React.ReactNode }) => {
 
 const h3 = ({ children, ...props }: { children: React.ReactNode }) => {
   return (
-    <h2 className="text-lg" {...props}>
+    <h2 className="text-lg" {...filterNodeProp(props)}>
       {children}
     </h2>
   );
@@ -113,7 +129,7 @@ const blockquote = ({ children, ...props }: { children: React.ReactNode }) => {
       py-2
       px-4
       rounded"
-      {...props}
+      {...filterNodeProp(props)}
     >
       {children}
     </blockquote>
@@ -133,7 +149,7 @@ const table = ({ children, ...props }: { children: React.ReactNode }) => {
         whitespace-nowrap
         border-slate-400
         dark:border-slate-700"
-        {...props}
+        {...filterNodeProp(props)}
       >
         {children}
       </table>
@@ -153,7 +169,7 @@ const thead = ({ children, ...props }: { children: React.ReactNode }) => {
       border-b
       border-slate-400
       dark:border-slate-700"
-      {...props}
+      {...filterNodeProp(props)}
     >
       {children}
     </thead>
@@ -168,7 +184,7 @@ const tbody = ({ children, ...props }: { children: React.ReactNode }) => {
       border-b
       border-slate-400
       dark:border-slate-700"
-      {...props}
+      {...filterNodeProp(props)}
     >
       {children}
     </tbody>
@@ -189,7 +205,7 @@ const th = ({ children, ...props }: { children: React.ReactNode }) => {
       border
       border-slate-400
       dark:border-slate-700"
-      {...props}
+      {...filterNodeProp(props)}
     >
       {children}
     </th>
@@ -206,7 +222,7 @@ const td = ({ children, ...props }: { children: React.ReactNode }) => {
       border
       border-slate-400
       dark:border-slate-700"
-      {...props}
+      {...filterNodeProp(props)}
     >
       {children}
     </td>
@@ -231,7 +247,7 @@ const code = ({
       PreTag="div"
       showLineNumbers={true}
       language={match[1]}
-      {...props}
+      {...filterNodeProp(props)}
     >
       {String(children).replace(/\n$/, "")}
     </SyntaxHighlighter>
@@ -245,7 +261,7 @@ const code = ({
       bg-gray-400/20
       ${className}
       `}
-      {...props}
+      {...filterNodeProp(props)}
     >
       {children}
     </code>
@@ -272,7 +288,7 @@ const img = async ({ src, alt, ...props }: { src: string; alt: string }) => {
       height={0}
       sizes="100vw"
       style={{ width: "auto", height: "auto" }}
-      {...props}
+      {...filterNodeProp(props)}
     />
   );
 };
