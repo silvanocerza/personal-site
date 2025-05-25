@@ -10,9 +10,17 @@ import type { Root } from "mdast";
 const AUTHOR = { name: "Silvano Cerza", email: "silvanocerza@gmail.com" };
 const COPYRIGHT =
   "This content is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license.";
-const BASE_URL = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
+
+const BASE_URL = (() => {
+  if (process.env.NODE_ENV === "production") {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  } else if (process.env.NODE_ENV === "test") {
+    return `https://${process.env.VERCEL_URL}`;
+  } else if (process.env.NODE_ENV === "development") {
+    return "http://localhost:3000";
+  }
+  throw Error("NODE_ENV not set");
+})();
 
 const customImagePlugin = () => (tree: Root) => {
   // We handle image with relative path in a different way than when we
