@@ -75,6 +75,9 @@ export async function createFeed(
           date: new Date(item.date),
           author: [AUTHOR],
           copyright: COPYRIGHT,
+          category: item.tags.map((tag) => {
+            return { term: tag };
+          }),
         });
       }),
   );
