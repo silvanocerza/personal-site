@@ -5,8 +5,6 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { ThemeProvider } from "next-themes";
 import Footer from "@/app/ui/footer";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 
 config.autoAddCss = false;
 
@@ -27,12 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased pb-8">
-        <SpeedInsights />
         <ThemeProvider attribute="class">
           <div className="mx-auto max-w-[800px] p-4">
             <Header />
             {children}
-            <Analytics />
             <Footer />
           </div>
         </ThemeProvider>

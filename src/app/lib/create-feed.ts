@@ -13,9 +13,9 @@ const COPYRIGHT =
 
 const BASE_URL = (() => {
   if (process.env.NODE_ENV === "production") {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+    return `https://${process.env.URL}`;
   } else if (process.env.NODE_ENV === "test") {
-    return `https://${process.env.VERCEL_URL}`;
+    return `https://${process.env.DEPLOY_URL}`;
   } else if (process.env.NODE_ENV === "development") {
     return "http://localhost:3000";
   }
