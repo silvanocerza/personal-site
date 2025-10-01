@@ -1,0 +1,26 @@
+[build]
+    command = "pnpm build"
+
+[build.processing.html]
+    pretty_urls = true
+
+[[redirects]]
+    from = "/resume"
+    to = "https://resume.silvanocerza.com"
+    status = 301
+    force = true
+
+[[headers]]
+    for = "/atom/all"
+    [headers.values]
+        Content-Type = "text/atom+xml; charset=utf-8"
+
+[[headers]]
+    for = "/atom/posts"
+    [headers.values]
+        Content-Type = "text/atom+xml; charset=utf-8"
+
+[[headers]]
+    for = "/atom/thoughts"
+    [headers.values]
+        Content-Type = "text/atom+xml; charset=utf-8"
